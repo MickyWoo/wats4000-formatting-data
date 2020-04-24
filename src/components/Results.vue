@@ -20,7 +20,9 @@
     </p>
 
     <ul>
-      <li class="movie-item" v-for="(result,results) in results" :key="result" >
+      <li class="movie-item" v-for="(result,results) in results" :key="results" >
+      <!-- little confused about "key.object": Index, result is the variables within "results"
+       The first parameter in the parenthesis is your variable for each item and the second one is your index. So your key is the index -->
       
         
         <img
@@ -36,9 +38,9 @@
 
         <div class="ratings">
           <span class="rating-category critics-choice" v-if="result.vote_average > 8 " >Critic's Choice</span>
-          <span class="rating-category well-liked v-else-if=" (result.vote_average > 7) && (result.vote_average < 8) "> Well Liked </span>
+          <span class="rating-category well-liked" v-else-if=" (result.vote_average > 7) && (result.vote_average < 8) "> Well Liked </span>
       
-          <span class="rating-category stinker v-else>Stinker</span>
+          <span class="rating-category stinker" v-else>Stinker</span>
 
           <span class="vote-average" > {{result.vote_average}} </span> with
           <span class="vote-count" > {{result.vote_count}} </span> votes
@@ -52,7 +54,7 @@
       
         <ul class="genre-list">
           
-          <li v-for=" (results,genre) in result.genres" :key="genre" > {{ genre }} </li>
+          <li v-for=" (genre,results) in result.genres" :key="results" > {{ genre }} </li>
         
         </ul>
       </li>
