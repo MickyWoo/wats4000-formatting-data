@@ -55,6 +55,9 @@
         <ul class="genre-list">
           
           <li v-for=" (genre,results) in result.genres" :key="results" > {{ genre }} </li>
+          <!-- Yep. You specify it in the parenthesis there. So you could say 
+V-for="(random, results) in results.genres" and then print {{random}} and it would come out the same as it does now -->
+
         
         </ul>
       </li>
